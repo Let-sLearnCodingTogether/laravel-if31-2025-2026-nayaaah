@@ -7,8 +7,8 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Exception;
-use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -16,7 +16,7 @@ class AuthController extends Controller
     public function login (LoginRequest $request) 
     {
         try {
-            $validate = $request->safe()->all();
+            $validated = $request->safe()->all();
 
             if (!Auth::attempt($validated)) {
                 return response()->json([
