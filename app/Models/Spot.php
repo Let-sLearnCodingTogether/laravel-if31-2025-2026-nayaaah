@@ -20,4 +20,12 @@ class Spot extends Model
         return $this->belogsTo(User::class);
     }
 
+    public function category() {
+        return $this->hasMany(Categories::class);
+    }
+
+    public function reviews() {
+        return $this->hasMany(Review::class);
+    }
+
 }
